@@ -42,7 +42,7 @@ class PDFMergerHandler(FileSystemEventHandler):
          # check, if output file already exists to create identical suffix
         counter = 1
         while os.path.exists(output_file):
-            output_file = os.path.join(self.output_directory, f"{timestamp}_merged({counter}).pdf")
+            output_file = os.path.join(self.output_directory, f"{timestamp}_{os.path.splitext(first_file_name)[0]}_merged({counter}).pdf")
             counter += 1
         
         with open(output_file, 'wb') as output_pdf:
