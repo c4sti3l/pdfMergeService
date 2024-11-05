@@ -13,5 +13,13 @@ docker run -v /pfad/zum/lokalen/eingabe_verzeichnis:/app/input -v /pfad/zum/loka
 ```
 
 ```
-podman run -v C:/PDF/input:/app/input -v C:/PDF/output:/app/output -d pdf-merge-service
+podman run -v C:/PDF/input:/app/input -v C:/PDF/output:/app/output -v C:/PDF/input_single:/app/input_single -d pdf-merge-service
+```
+
+```
+podman stop pdf-merge-service;
+podman rm pdf-merge-service;
+podman build -t pdf-merge-service;
+podman run -v C:/PDF/input:/app/input -v C:/PDF/output:/app/output -v C:/PDF/input_single:/app/input_single --name pdf-merge-service -d pdf-merge-service
+
 ```
