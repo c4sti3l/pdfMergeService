@@ -50,12 +50,12 @@ class PDFMergerHandler(FileSystemEventHandler):
             if page_num < len(even_pdf.pages):
                 merged_pdf.add_page(even_pdf.pages[page_num])
 
-        output_file = os.path.join(self.output_directory, f"{timestamp}_{os.path.splitext(first_file_name)[0]}_merged.pdf")
+        output_file = os.path.join(self.output_directory, f"{timestamp}_{os.path.splitext(first_file_name)[0]}_m.pdf")
 
         # Überprüfen, ob Ausgabedatei bereits existiert, und ggf. Suffix hinzufügen
         counter = 1
         while os.path.exists(output_file):
-            output_file = os.path.join(self.output_directory, f"{timestamp}_{os.path.splitext(first_file_name)[0]}_merged({counter}).pdf")
+            output_file = os.path.join(self.output_directory, f"{timestamp}_{os.path.splitext(first_file_name)[0]}_m({counter}).pdf")
             counter += 1
 
         print(f"Saving merged PDF as: {output_file}")
